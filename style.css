@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap');
+
+
+body {
+  background-color: #EEF9BF;
+}
+.top {
+  padding-top: 40px;
+}
+.top h1 {
+font-family: 'Roboto', sans-serif;
+text-align: center;
+font-size: 56px;
+font-weight:bold;
+color: #75B79E;
+}
+
+.content{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+}
+
+.game{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 75%;
+}
+
+.cards {
+  width: 117px;
+  height: 146px;
+  background-color: #A7E9AF;
+  border: 1px solid #99CEA8;
+  border-radius: 5px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 51px;
+  margin-bottom: 34px;
+}
+
+img {
+  width: 100%;
+}
