@@ -24,12 +24,15 @@ color: #75B79E;
 
 .game{
   display:flex;
-  flex-direction: row;
+  flex-direction:row;
   flex-wrap: wrap;
+  justify-content: center;
   max-width: 75%;
+  transition: all 400ms ease;
+  transform: preserve-3d;
 }
 
-.cards {
+.card {
   width: 117px;
   height: 146px;
   background-color: #A7E9AF;
@@ -38,10 +41,27 @@ color: #75B79E;
   display:flex;
   justify-content: center;
   align-items: center;
-  margin-left: 51px;
-  margin-bottom: 34px;
+  transition: all 400ms ease;
+  transform: preserve-3d;
+  margin: 0 51px 51px 0;
 }
+.face {
+  width: 100%;
+}
+
+.front{
+  display:block;
+}
+
+.back{
+  display:none;
+}
+
 
 img {
   width: 100%;
+}
+
+.flip {
+  transform: rotateY(180deg);
 }
