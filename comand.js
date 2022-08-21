@@ -34,6 +34,32 @@ const gameCards=[
   },
 ];
 
+//////// PROMPT
+let userResponseQtd = prompt('Com quantas cartas quer jogar?')
+
+let qtdCards = 4;
+
+userResponseQtd = parseInt(userResponseQtd);
+
+let isOk = true;
+while(isOk){
+  // verifica se valor esta dentro da limitacao
+  if(userResponseQtd >=4 && userResponseQtd <= 14) {
+    // verifica se é par
+    if (userResponseQtd % 2 == 0){
+      qtdCards = userResponseQtd / 2;  
+      isOk = false;
+    }else {
+      userResponseQtd = prompt('Com quantas cartas quer jogar?');
+      userResponseQtd = parseInt(userResponseQtd);
+    }
+  }else {
+    userResponseQtd = prompt('Com quantas cartas quer jogar?');
+    userResponseQtd = parseInt(userResponseQtd);
+  }
+}
+
+///// criar cards
 function randomList(qtd) {
   const list = [];
   const check = [];
@@ -52,31 +78,13 @@ function randomList(qtd) {
   return list;
 }
 
-
-const userResponseQtd = prompt('Com quantas cartas quer jogar?')
-let html1 = '';
-let html2 = '';
-
-const game = document.querySelector(".game");
-
-let qtdCards = 4;
-
-if (userResponseQtd>=4 && userResponseQtd<=14 ){
-
-  if (userResponseQtd % 2 == 0){
-    qtdCards = userResponseQtd / 2;
-    
-  } else {
-    //  correcao em caso seja impar, soma mais 1 para se tornar par
-    qtdCards = (userResponseQtd + 1) / 2;
-
-  } 
-}
-
 const pars1 = randomList(qtdCards);
 const pars2 = randomList(qtdCards);
 
+const game = document.querySelector(".game");
 
+let html1 = '';
+let html2 = '';
 for(let i=0; i < pars1.length; i++){
   html1 = html1 + `
     <div class="card" card-id=${pars1[i].id} onclick=flip(this)>
