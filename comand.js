@@ -105,10 +105,35 @@ for(let i=0; i < pars2.length; i++){
 
 game.innerHTML = html1 + html2;
 
-//funcoes
-let firtCard;
+// FUNCOES
+let firstCard;
 let secondCard;
 
 function flip(element){
   element.classList.add('flip');
+  if (firstCard=== undefined){
+    firstCard=element;
+    return false;
+  }
+
+  secondCard=element;
+  matchCards();
 }
+function unflip(element){
+  element.classList.remove('flip');
+}
+function matchCards(){
+
+  const firstCardId=firstCard.getAttribute('card-id');
+  const secondCardId=secondCard.getAttribute('card-id');
+  if( firstCardId===secondCardId ){
+    firstCard=undefined;
+    secondCard=undefined; 
+  }else{
+    unflip(firstCard)
+    unflip(secondCard)
+    firstCard=undefined;
+    secondCard=undefined;
+  }
+}
+
