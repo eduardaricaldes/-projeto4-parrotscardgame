@@ -130,10 +130,12 @@ function matchCards(){
     firstCard=undefined;
     secondCard=undefined; 
   }else{
-    unflip(firstCard)
-    unflip(secondCard)
-    firstCard=undefined;
-    secondCard=undefined;
+    setTimeout(() => {
+      unflip(firstCard);
+      unflip(secondCard);
+      firstCard=undefined;
+      secondCard=undefined;
+    }, 1000);
   }
 }
 
