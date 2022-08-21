@@ -79,7 +79,7 @@ const pars2 = randomList(qtdCards);
 
 for(let i=0; i < pars1.length; i++){
   html1 = html1 + `
-    <div class="card" card-id=${pars1[i].id}>
+    <div class="card" card-id=${pars1[i].id} onclick=flip(this)>
       <div class="face front">
         <img src="img/front.png" />
       </div>
@@ -92,7 +92,7 @@ for(let i=0; i < pars1.length; i++){
 
 for(let i=0; i < pars2.length; i++){
   html2 = html2 + `
-    <div class="card" card-id=${pars2[i].id}>
+    <div class="card" card-id=${pars2[i].id} onclick=flip(this)>
       <div class="face front">
         <img src="img/front.png" />
       </div>
@@ -104,3 +104,11 @@ for(let i=0; i < pars2.length; i++){
 }
 
 game.innerHTML = html1 + html2;
+
+//funcoes
+let firtCard;
+let secondCard;
+
+function flip(element){
+  element.classList.add('flip');
+}
