@@ -38,14 +38,15 @@ function randomList(qtd) {
   const list = [];
   const check = [];
   while(list.length < qtd) {
-    const sequence = Math.floor(Math.random() * (qtd)) + 1;
-
-    if(check.indexOf(sequence) === -1) {
+    const randomNumber = Math.floor(Math.random() * (qtd)) + 1;
+    
+    if(check.indexOf(randomNumber) === -1) {
       const card = gameCards.find(function(gameCard){
-        return gameCard.id === sequence;
+        return gameCard.id === randomNumber;
       });
+
       list.push(card);
-      check.push(sequence);
+      check.push(randomNumber);
     }
   }
   return list;
@@ -77,20 +78,20 @@ const pars2 = randomList(qtdCards);
 
 
 for(let i=0; i < pars1.length; i++){
-  html1 += `
+  html1 = html1 + `
     <div class="card" card-id=${pars1[i].id}>
       <div class="face front">
         <img src="img/front.png" />
       </div>
       <div class="face back">
-        <img src=${pars1[i].img} />
+        <img src=${pars1[i].img} /> 
       </div>
     </div>
   `;
 }
 
 for(let i=0; i < pars2.length; i++){
-  html2 += `
+  html2 = html2 + `
     <div class="card" card-id=${pars2[i].id}>
       <div class="face front">
         <img src="img/front.png" />
