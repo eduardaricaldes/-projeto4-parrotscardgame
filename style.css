@@ -65,3 +65,15 @@ img {
 .flip {
   transform: rotateY(180deg);
 }
+
+/* LOGICA ROTACAO */
+
+.card.flip .front {
+  display: none;
+  
+}
+
+.card.flip .back{
+  display: block;
+
+} 
