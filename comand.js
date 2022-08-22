@@ -116,8 +116,17 @@ game.innerHTML = html1 + html2;
 // FUNCOES
 let firstCard;
 let secondCard;
+let attempts = 0;
 
 function flip(element){
+  if(element.classList.contains('disabled')) {
+    return false;
+  }
+  // verifica duplo click
+  if(element === firstCard){
+    return false;
+  }
+
   element.classList.add('flip');
   if (firstCard=== undefined){
     firstCard=element;
@@ -126,23 +135,49 @@ function flip(element){
 
   secondCard=element;
   matchCards();
+  checkFinishGame();
 }
+
 function unflip(element){
   element.classList.remove('flip');
 }
-function matchCards(){
 
+function attemptsGame() {
+  attempts = attempts + 1;
+}
+
+function matchCards(){
   const firstCardId=firstCard.getAttribute('card-id');
   const secondCardId=secondCard.getAttribute('card-id');
   if( firstCardId===secondCardId ){
+    firstCard.classList.add('disabled');
+    secondCard.classList.add('disabled');
     firstCard=undefined;
-    secondCard=undefined; 
+    secondCard=undefined;
+    return;
   }else{
     setTimeout(() => {
       unflip(firstCard);
       unflip(secondCard);
       firstCard=undefined;
       secondCard=undefined;
+      attemptsGame();
+    }, 1000);
+    return;
+  }
+}
+
+function checkFinishGame() {
+  let isFinished = true;
+  const cards = document.querySelectorAll('.card');
+  for(let i = 0; i<cards.length;i++) {
+    if (!cards[i].classList.contains('disabled')) {
+      isFinished = false;
+    }
+  }
+  if(isFinished) {
+    setTimeout(() => {
+      alert(`Voce ganhou em ${attempts}`);
     }, 1000);
   }
 }
