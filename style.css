@@ -75,5 +75,13 @@ img {
 
 .card.flip .back{
   display: block;
+}
 
-} 
+@media screen and (max-width:420px) {
+  .game {
+    flex-direction: column;
+  }
+  .card {
+    margin-right: 0;
+  }
+}
